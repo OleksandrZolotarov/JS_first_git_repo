@@ -53,13 +53,13 @@ console.log(arrObj['b'])
 // Во внутрь объекта storeDescription напрямую поместите свойство products. Это должен быть тоже объект, который содержит два товара и их цену. То есть, нужно создать пару ключ-значение в виде товар: цена Данные на ваш выбор.
 
 // Во внутрь объекта storeDescription напрямую поместите свойство open. Тут можно контролировать: или магазин открыт, или закрыт, то есть логическое значение. Сделайте его открытым
-let storeName = 'Secretinme';
-const storeDescription = {
-    budget: 10000,
-    employees: ['John', 'Andrew', 'Sveta'],
-    products: { oranges: 500, plums: 400 },
-    open: true
-};
+// let storeName = 'Secretinme';
+// const storeDescription = {
+//     budget: 10000,
+//     employees: ['John', 'Andrew', 'Sveta'],
+//     products: { oranges: 500, plums: 400 },
+//     open: true
+// };
 
 // LESSON 12 Простое общение с пользователем
 // alert('Hello');
@@ -75,35 +75,57 @@ const storeDescription = {
 // answers[1] = prompt('Name?', '');
 // answers[2] = prompt('Surname?', '');
 
-const category = 'toys';
-// console.log('http://someurl.com/' + category)
-console.log(`http://someurl.com/${category}/5`)
+// const category = 'toys';
+// // console.log('http://someurl.com/' + category)
+// console.log(`http://someurl.com/${category}/5`)
 
-const user = 'Alex';
-alert(`Привіт,${user}`)
+// const user = 'Alex';
+// alert(`Привіт,${user}`)
 
 
-// LEsson 14 Оператори 
-console.log('arr' + "-object");
-console.log(4 + "-object");
-console.log(4 + +"5");
+// // LEsson 14 Оператори 
+// console.log('arr' + "-object");
+// console.log(4 + "-object");
+// console.log(4 + +"5");
 
-// Increment and decrement
-let incr = 10,
-    decr = 10;
-console.log(++incr); //новое значение
-console.log(--decr);
-console.log(incr++); //старое значение
-console.log(decr--);
+// // Increment and decrement
+// let incr = 10,
+//     decr = 10;
+// console.log(++incr); //новое значение
+// console.log(--decr);
+// console.log(incr++); //старое значение
+// console.log(decr--);
 
-//Другие оператори
-console.log(100 % 2);
-console.log(2 * 4 === '8');
+// //Другие оператори
+// console.log(100 % 2);
+// console.log(2 * 4 === '8');
 
-const isChecked = true;
-const isClose = false;
-const isOpen = true;
+// const isChecked = true;
+// const isClose = false;
+// const isOpen = true;
 
-console.log(isChecked && isClose && isOpen);
+// console.log(isChecked && isClose && isOpen);
 
-console.log(`\`` === "`");
+// console.log(`\`` === "`");
+
+//LESSON 17 Practice 1. Application creation
+
+let numberOfFilms = +prompt("Сколько фильмов ви посмотрели?", "");
+
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+
+}
+
+const a = prompt("Останній фільм,що дивилися", ""),
+    b = prompt("На сколько оцените фильм?", ""),
+    c = prompt("Останній фільм,що дивилися", ""),
+    d = prompt("На сколько оцените фильм?", "");
+
+personalMovieDB.movies[a] = b;
+personalMovieDB.movies[c] = d;
+console.log(personalMovieDB);
