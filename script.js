@@ -25,18 +25,18 @@
 
 //Arrays
 
-let arr = ['plum.png', 'orange.jpg', 'orange-orange.jpg'];
-console.log(arr[1]);
+// let arr = ['plum.png', 'orange.jpg', 'orange-orange.jpg'];
+// console.log(arr[1]);
 
-const arrObj = {
-    a: 'a',
-    '1': 'b',
-    2: 'c'
-}
-arrObj['b'] = 1234;
-arrObj.c = 333;
-console.log(arrObj['c'])
-console.log(arrObj['b'])
+// const arrObj = {
+//     a: 'a',
+//     '1': 'b',
+//     2: 'c'
+// }
+// arrObj['b'] = 1234;
+// arrObj.c = 333;
+// console.log(arrObj['c'])
+// console.log(arrObj['b'])
 
 
 //Homework
@@ -60,6 +60,7 @@ console.log(arrObj['b'])
 //     products: { oranges: 500, plums: 400 },
 //     open: true
 // };
+//========================================================================================================================================================
 
 // LESSON 12 Простое общение с пользователем
 // alert('Hello');
@@ -108,24 +109,66 @@ console.log(arrObj['b'])
 
 // console.log(`\`` === "`");
 
+//========================================================================================================================================================
+
 //LESSON 17 Practice 1. Application creation
 
-let numberOfFilms = +prompt("Сколько фильмов ви посмотрели?", "");
+// let numberOfFilms = +prompt("Сколько фильмов ви посмотрели?", "");
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
+// const personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
 
+// }
+
+// const a = prompt("Останній фільм,що дивилися", ""),
+//     b = prompt("На сколько оцените фильм?", ""),
+//     c = prompt("Останній фільм,що дивилися", ""),
+//     d = prompt("На сколько оцените фильм?", "");
+
+// personalMovieDB.movies[a] = b;
+// personalMovieDB.movies[c] = d;
+// console.log(personalMovieDB);
+
+//========================================================================================================================================================
+//LESSON 19 Условия
+
+// if (4 == 4) { console.log('OK') }
+// else { console.log('Error') }
+
+// if (1) { console.log(typeof (true)) }
+
+// const num = 'net';
+// // if (num < 49) { console.log('Error'); }
+// // else if (num > 51) { console.log('BOLSHE') }
+// // else { console.log("RAVNO") }
+
+// // (num === 50) ? console.log('OK!') : console.log("Error");
+
+// switch (num) {
+//     case 'string': console.log('DA');
+//         break;
+//     case 100: console.log('>Net>');
+//         break;
+//     case 51: console.log('OK');
+//     default: console.log('Ne odno');
+//         break
+// }
+const num = 'net';
+
+switch (typeof num) {
+    case 'string':
+        console.log('DA');
+        break;
+    case 'number':
+        console.log('>Net>');
+        break;
+    case 'boolean':
+        console.log('OK');
+        break;
+    default:
+        console.log('Ne odno');
 }
-
-const a = prompt("Останній фільм,що дивилися", ""),
-    b = prompt("На сколько оцените фильм?", ""),
-    c = prompt("Останній фільм,що дивилися", ""),
-    d = prompt("На сколько оцените фильм?", "");
-
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-console.log(personalMovieDB);
