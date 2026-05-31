@@ -2,7 +2,7 @@
 // LESSON 10 Классификация типов данных в JavaScript//
 //11. (д) Разница между объектами и массивами и неочевидные синтаксические возможности
 
-"use strict"
+"use strict";
 // const arr = [1, 2, 3];
 // console.log(arr[2])
 
@@ -37,7 +37,6 @@
 // arrObj.c = 333;
 // console.log(arrObj['c'])
 // console.log(arrObj['b'])
-
 
 //Homework
 //Задачи:
@@ -83,8 +82,7 @@
 // const user = 'Alex';
 // alert(`Привіт,${user}`)
 
-
-// // LEsson 14 Оператори 
+// // LEsson 14 Оператори
 // console.log('arr' + "-object");
 // console.log(4 + "-object");
 // console.log(4 + +"5");
@@ -172,19 +170,18 @@
 //     default:
 //         console.log('Ne odno');
 // }
-console.log(NaN || 2 || undefined);
-console.log(undefined && 2 && undefined);
-console.log(1 && 2 && 3);
-console.log(!1 || 1);
-console.log(25 || null && !3); console.log(NaN || null || !3 || undefined || 5);
+// console.log(NaN || 2 || undefined);
+// console.log(undefined && 2 && undefined);
+// console.log(1 && 2 && 3);
+// console.log(!1 || 1);
+// console.log(25 || null && !3); console.log(NaN || null || !3 || undefined || 5);
 
-console.log(NaN || null && !3 && undefined || 5);
-console.log(5 === 5 && 3 > 1 || 5);
+// console.log(NaN || null && !3 && undefined || 5);
+// console.log(5 === 5 && 3 > 1 || 5);
 // const hamburger = 3;
 // const fries = 3;
 // const cola = 0;
 // const nuggets = 2;
-
 
 // if (hamburger === 3 && cola || fries === 3 && nuggets) {
 //     console.log('Done!')
@@ -194,7 +191,6 @@ console.log(5 === 5 && 3 > 1 || 5);
 // const cola = 0;
 // const nuggets = 2;
 
-
 // if (hamburger || cola || fries === 3 || nuggets) {
 //     console.log('Done!')
 // }
@@ -203,20 +199,182 @@ console.log(5 === 5 && 3 > 1 || 5);
 // const cola = 0;
 // const nuggets = 2;
 
-
 // if (hamburger && cola || fries === 3 && nuggets) {
 //     console.log('Done!')
 // }
 // let num = 50;
 // while (num < 55) {
 //     console.log(num);
-//    
+//
 // }
 
-let num = 50;
+// let num = 50;
 
-do {
-    num++;
-    console.log(num);
+// // do {
+// //     num++;
+// //     console.log(num);
 
-} while (num < 56);
+// // } while (num < 56);
+// for (let i = 0; i <= 10; i++) {
+//     num++;
+//     if (num === 55) { continue; }
+//     console.log(num);
+// }
+// let i = 0;
+// while (i < 3) { // выводит 0, затем 1, затем 2
+//     alert(i);
+//     i++;
+// }
+// let num = 1;
+// for (i = 0; i < 11; i++) {
+//     num++;
+//     if (num === 3 && num === 5 && num === 7 && num === 9)
+// }
+
+//LESSON 22 Цикл в цикле и метки
+
+// for (let i = 0; i < 3; i++) {
+//     console.log(i);
+//     for (let j = 0; j < 3; j++) {
+//         console.log(j);
+//         for (let k = 0; k < 3; k++) { console.log(k); }
+//     }
+// }
+// The Pattern of OutputThe console will look like this (truncated):0 (i)0 (j)0, 1, 2 (k)1 (j)0, 1, 2 (k)2 (j)0, 1, 2 (k)1 (i) ... and so on.
+
+// *
+// **
+// ***
+// ****
+// *****
+// ******
+// let result = "";
+// const length = 6;
+// for (let i = 4; i < length; i++) {
+//   for (let j = 0; j < i; j++) {
+//     result += "*";
+//   }
+//   result += "\n";
+// }
+// console.log(result);
+
+// let result = " ";
+// const length = 10;
+
+// for (let i = 1; i <= length; i++) {
+//   for (let j = 1; j <= i; j++) {
+//     result += j + " ";
+//   }
+//   result += "\n";
+// }
+
+// console.log(result);
+
+// for (let i = 1; i < 10; i++) {
+
+//   if (i % 2 == 0) continue;
+
+//   console.log(i); // 1, затем 3, 5, 7, 9
+// }
+
+// for (let i = 1; i < 10; i++) {
+//   if (i === 6) {
+//     break;
+//   }
+//   console.log(i);
+// }
+// for (let i = 1; i < 10; i++) {
+//   if (i === 6) break;
+
+//   console.log(i);
+// }
+// for (let i = 0; i < 3; i++) {
+//   console.log(i++);
+// }
+// for (let i = 0; i < 3; i++) {
+//   alert(`number ${i}!`);
+// }
+// let i = 0;
+// while (i < 3) {
+//   alert(`number ${i}!`);
+//   i++;
+// }
+// let i = 0;
+// while (i < 3) {
+//   alert( `number ${i}!` );
+//   i++;
+// }
+// let i = 1;
+
+// do {
+//   alert(i--);
+// } while (--i);
+
+// METKI
+// for (let i = 0; i < 3; i++) {
+//   console.log(`First Level ${i}`);
+//   for (let j = 0; j < 2; j++) {
+//     console.log(`Second Level ${j}`);
+//     for (let k = 0; k < 3; k++) {
+//       console.log(`Third Level ${k}`);
+//     }
+//   }
+// }
+
+//Задачи
+// 1.При помощи цикла выведите числа от 5 до 10 в консоль. 5 и 10 включительно. Цикл можно использовать любой
+// for (let i = 0; i < 11; i++) {
+//   if (i >= 5 && i <= 10) {
+//     console.log(i);
+//   }
+// }
+
+// 2.При помощи цикла for вывести числа от 20 до 10 в консоль. В обратном порядке (20, 19, 18...). Когда цикл дойдет до числа 13 - остановить весь цикл
+// for (let i = 20; i >= 10; i--) {
+//   if (i === 13) {
+//     break;
+//   }
+//   console.log(i);
+// }
+
+// 3.При помощи цикла for выведите чётные числа от 2 до 10 включительно
+
+// for (let i = 1; i <= 10; i++) {
+//   if (i % 2 === 0) {
+//     console.log(i);
+//   }
+// }
+
+// 4.Перепишите цикл  for на вариант с while. Результат должен остаться точно таким же. Не создайте бесконечный цикл! Иначе браузер может зависнуть.
+
+//  Цикл, который нужно переписать:
+
+// for (let i = 2; i <= 16; i++) {
+//   if (i % 2 === 0) {
+//     continue;
+//   } else {
+//     console.log(i);
+//   }
+// }
+
+// let i = 2;
+// while (i <= 16) {
+//   if (i % 2 === 1) {
+//     console.log(i);
+//   }
+//   i++;
+// }
+let i = 2;
+while (i <= 16) {
+  if (i % 2 === 0) {
+    i++;
+    continue;
+  } else {
+    console.log(i);
+  }
+  i++;
+}
+
+// 5.Заполните массив цифрами от 5 до 10 включительно. Помните, что элементы массива можно сформировать так же, как и обращаться к ним: arr[0]
+
+let arr = [5, 6, 7, 8, 9, 10];
