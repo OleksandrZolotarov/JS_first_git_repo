@@ -1296,12 +1296,12 @@ function detectPersonalLevel() {
 // genres
 
 // P.S. Функции вызывать не обязательно */
-function showMyDB() {
-  if (personalMovieDB.privat !== true) {
-    console.log(personalMovieDB);
-  }
-}
-showMyDB();
+// function showMyDB() {
+//   if (personalMovieDB.privat !== true) {
+//     console.log(personalMovieDB);
+//   }
+// }
+// showMyDB();
 
 // function writeYourGenres() {
 //   for (let i = 1; i <= 3; i++) {
@@ -1313,10 +1313,206 @@ showMyDB();
 // writeYourGenres();
 
 //Better variant
-function writeYourGenres() {
-  for (let i = 1; i <= 3; i++) {
-    personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+// function writeYourGenres() {
+//   for (let i = 1; i <= 3; i++) {
+//     personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+//   }
+// }
+// console.log(personalMovieDB);
+// writeYourGenres();
+
+//Lesson 28 Exercises========================================================================================================================================================
+//Задачи:
+
+// 1) Создайте функцию, которая будет вычислять объем и площадь полной поверхности куба (тоже базовая математика, иногда используется в создании анимаций). Эта функция принимает в себя целое число со значением длины ребра куба. Ответ выведите в формате строки, который изображен в примерах.
+
+// Если в функцию попал неправильный аргумент или вычислить значения невозможно - вернуть строку "При вычислении произошла ошибка"
+
+// НЕ ИСПОЛЬЗУЙТЕ ОПЕРАТОР СТЕПЕНИ ** - в онлайн среде браузера он не работает и тесты будут ломаться. Это из-за того, что этот оператор из более нового стандарта, чем тут доступен.
+
+// Примеры:
+
+// calculateVolumeAndArea(5)  => 'Объем куба: 125, площадь всей поверхности: 150'
+
+// calculateVolumeAndArea(15)  => 'Объем куба: 3375, площадь всей поверхности: 1350'
+
+// calculateVolumeAndArea(15.5)  => 'При вычислении произошла ошибка'
+
+// calculateVolumeAndArea('15')  => 'При вычислении произошла ошибка'
+
+// calculateVolumeAndArea(-15)  => 'При вычислении произошла ошибка'
+
+function calculateVolumeAndArea(a) {
+  if (isNaN(a) || typeof a == " " || a <= 0 || a % 1 !== 0) {
+    return "При вычислении произошла ошибка";
+  }
+  const volume = a * a * a;
+  const area = 6 * a * a;
+  return `Объем куба: ${volume}, площадь всей поверхности: ${area}`;
+}
+console.log(calculateVolumeAndArea(5));
+
+// Напишите функцию, которая будет определять номер купе по переданному ей номеру места. Наглядно:
+// Функция принимает только целое число от 1 до 36.
+
+// Если переданный аргумент не число, отрицательное или дробное - возвращается сообщение:
+
+// "Ошибка. Проверьте правильность введенного номера места"
+
+// Если число 0 или больше 36, то сообщение: "Таких мест в вагоне не существует"
+
+// Пример:
+
+// getCoupeNumber(33)  => 9
+
+// getCoupeNumber(7)  => 2
+
+// getCoupeNumber(300)  => "Таких мест в вагоне не существует"
+
+// getCoupeNumber(0)  => "Таких мест в вагоне не существует"
+
+// getCoupeNumber(7.7)  => "Ошибка. Проверьте правильность введенного номера места"
+
+// getCoupeNumber(-10)  => "Ошибка. Проверьте правильность введенного номера места"
+
+// getCoupeNumber('Hello')  => "Ошибка. Проверьте правильность введенного номера места"
+function getCoupeNumber(a) {
+  if (typeof a !== "number" || a < 0 || a % 1 !== 0) {
+    return "Ошибка. Проверьте правильность введенного номера места";
+  }
+  if (a === 0 || a > 36) {
+    return "Таких мест в вагоне не существует";
+  }
+
+  return Math.ceil(a / 4);
+}
+console.log(getCoupeNumber(5));
+
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. (Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
+
+// Внимание! Давайте пока ограничимся максимум 600ю минутами (10 часов). Так как проверки на большие числа будут раздувать код (33 часа, 31 час, 11 часов и тд). Этого будет достаточно и код будет проверять именно этот промежуток (1 - 10 часов). Но вы можете реализовать и полный скрипт, он тоже должен проходить тесты.
+
+// Пример:
+
+// getTimeFromMinutes(150) => "Это 2 часа и 30 минут"
+
+// getTimeFromMinutes(50) => "Это 0 часов и 50 минут"
+
+// getTimeFromMinutes(0) => "Это 0 часов и 0 минут"
+
+// getTimeFromMinutes(-150) => "Ошибка, проверьте данные"
+
+function getTimeFromMinutes(m) {
+  if (isNaN(m) || m < 0 || m % 1 !== 0) {
+    return "Ошибка, проверьте данные";
+  }
+  const hours = Math.floor(m / 60);
+  let hourWord;
+  if (hours === 1) {
+    hourWord = "час";
+  } else if (hours > 1 && hours < 5) {
+    hourWord = "часа";
+  } else {
+    hourWord = "часов";
+  }
+  return `Это ${hours} ${hourWord} и ${m % 60} минут`;
+}
+
+console.log(getTimeFromMinutes(61));
+
+// let num = 5.9;
+// console.log(Math.floor(num));
+
+// 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+
+// Пример:
+
+// findMaxNumber(1, 5, 6.6, 11); =>  11
+
+// findMaxNumber(1, 5, '6', '10');  =>  0
+
+function findMaxNumber(a, b, c, d) {
+  if (
+    typeof a !== "number" ||
+    typeof b !== "number" ||
+    typeof c !== "number" ||
+    typeof d !== "number" ||
+    a === undefined ||
+    b === undefined ||
+    c === undefined ||
+    d === undefined
+  ) {
+    return 0;
+  }
+  // if (a > b && a > c && a > d) {
+  //   return a;
+  // }
+  // if (b > a && b > c && b > d) {
+  //   return b;
+  // }
+  // if (c > a && c > b && c > d) {
+  //   return c;
+  // }
+  // if (d > a && d > b && d > c) {
+  //   return d;
+  // }
+  else {
+    return Math.max(a, b, c, d);
   }
 }
-console.log(personalMovieDB);
-writeYourGenres();
+
+console.log(findMaxNumber(8, 5, 55.3, 3));
+
+//Создайте функцию, которая будет принимать в себя один аргумент-целое положительное число. Она должна возвращать строку, в которой будут через пробел выведены числа Фибоначчи. Причем, их количество должно быть равно переданному аргументу.
+
+// Если переданный аргумент не число - вернуть пустую строку. Решать без применения рекурсии.
+
+// Пример:
+
+// fib(4) => ''0 1 1 2"
+
+// fib(7) => ''0 1 1 2 3 5 8"
+
+// fib('7') => ''"
+
+// fib(1) => "0"
+
+// fib(0) => ''"
+function fib(n) {
+  let prev = 0;
+  let next = 1;
+  let result = "";
+  for (let i = 0; i < n; i++) {
+    result += next;
+  }
+  return result;
+}
+
+console.log(fib(7));
+
+function fib(num) {
+  if (typeof num !== "number" || num <= 0 || !Number.isInteger(num)) {
+    return "";
+  }
+
+  let result = "";
+  let first = 0;
+  let second = 1;
+
+  for (let i = 0; i < num; i++) {
+    if (i + 1 === num) {
+      result += `${first}`;
+      // Без пробела в конце
+    } else {
+      result += `${first} `;
+    }
+
+    let third = first + second;
+    first = second;
+    second = third;
+  }
+
+  return result;
+}
+
+console.log(fib(7));
