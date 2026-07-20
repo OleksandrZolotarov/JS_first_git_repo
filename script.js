@@ -1136,8 +1136,8 @@
 // // }
 // // console.log(getMathResult(3, 5));
 
-// // let str = "test";
-// // console.log(str.toUpperCase());
+let str = "test";
+console.log(str.toUpperCase());
 
 // // function getEvevnNum(start, count) {
 // //   if (typeof count !== "number" || count <= 0) {
@@ -1737,24 +1737,438 @@ learnJS("JS", notDone);
 
 //Lesson 31 Объекты.Деструктуризация объектов(ES6)========================================================================================================================================================
 
-const options = {
-  width: 1024,
-  height: 1024,
-  border: "yellow",
-  colors: {
-    shadow: "green",
-    bg: "red",
+// const options = {
+//   width: 1024,
+//   height: 1024,
+//   border: "yellow",
+//   colors: {
+//     shadow: "green",
+//     bg: "red",
+//   },
+// };
+// const { shadow, bg } = options.colors;
+// // delete options.width;
+// console.log(shadow, bg);
+// let count = 0;
+// for (let key in options) {
+//   if (typeof options[key] === "object") {
+//     console.log(key, options[key]);
+//     console.log(`Свойство ${key}:`);
+//     for (let i in options[key]) {
+//       console.log(`Свойство ${i} imeet znachenie ${options[key][i]}`);
+//     }
+//   } else {
+//     console.log(`Свойство ${key} imeet znachenie ${options[key]}`);
+//   }
+// }
+
+// console.log(Object.keys(options));
+// console.log(Object.keys(options).length);
+
+// const proprties = {
+//   colors: " red",
+//   color: "blue",
+//   makeTest: function () {
+//     console.log("TEST");
+//   },
+// };
+// proprties.makeTest();
+
+// const { colors, color };
+// console.dir(String);
+
+//========================================================================================================================================================
+
+// 1) Напишите функцию showExperience, которая будет принимать в себя объект со всеми данными и возвращать строку с опытом.
+
+// Пример:
+
+// showExperience(personalPlanPeter) => '1 month'
+
+// P.S. желательно использовать деструктуризацию, но не обязательно
+
+// function showExperience(plan) {
+//   return plan.skills.exp;
+// }
+// console.log(showExperience(personalPlanPeter));
+
+// 2) Напишите функцию showProgrammingLangs, которая будет принимать в себя объект со всеми данными и возвращать строку в нужном виде.
+// Пример:
+// showProgrammingLangs(personalPlanPeter)  =>
+// "Язык js изучен на 20% Язык php изучен на 10%"
+// Причем функция должна работать вне зависимости от количества языков. Если ни один не указан, то возвращается пустая строка.
+// P.S. Для переноса строки используется \n в конце строки.
+
+// function showProgrammingLangs(plan) {
+//   let result = "";
+//   for (let i in plan.skills.programmingLangs) {
+//     result += `Язык ${i} изучен на ${plan.skills.programmingLangs[i]}\n`;
+//   }
+//   return result;
+// }
+
+// console.log(showProgrammingLangs(personalPlanPeter));
+
+// 3) Создайте метод showAgeAndLangs внутри объекта personalPlanPeter. При его вызове метод будет принимать в себя объект и возвращать строку в нужном виде.
+
+// Пример:
+
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter)
+// => 'Мне 29 и я владею языками: RU ENG'
+
+// Заметьте, что возраст и языки подставляются автоматически из объекта, а языки всегда в верхнем регистре (большими буквами). Если данные в объекте поменяются, то и сообщение тоже изменится.
+// const personalPlanPeter = {
+//   name: "Peter",
+//   age: "29",
+//   skills: {
+//     languages: ["ru", "eng"],
+//     programmingLangs: {
+//       js: "20%",
+//       php: "10%",
+//     },
+//     exp: "1 month",
+//   },
+
+//   showAgeAndLangs: function (plan) {
+//     let result = "";
+//     for (let lang of plan.skills.languages) {
+//       result += `${lang.toUpperCase()} `;
+//     }
+//     return `Мне ${plan.age} и я владею языками: ${result.trim()}`;
+//   },
+// };
+
+// console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+//========================================================================================================================================================
+
+//Lesson 32 Массивы и псевдомассивы========================================================================================================================================================
+
+// console.dir(arr);
+// arr.pop();
+// arr.push(10);
+// arr.shift();
+// arr.unshift(5);
+// console.log(arr);
+// const arr = [2, 5, 8, 78, 14];
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+// for (let value of arr) {
+//   console.log(value);
+// }
+// // arr[200] = 0;
+
+// arr.forEach(function (item, i, arr) {
+//   console.log(`${i}:${item} vnutri massiva ${arr}`);
+// });
+// arr.map(function (item, i, arr) {
+//   console.log(`${i}:${item} vnutri massiva ${arr}`);
+// });
+
+// const str = `"apple","banana","orange"`;
+// const products = str.split(",");
+// console.log(products);
+
+const array = [22, 11, 3];
+// const fruit = array.join("; ");
+// console.log(fruit);
+// console.log(array.sort());
+array.sort(compareNumber);
+console.log(array);
+function compareNumber(a, b) {
+  return a - b;
+}
+//========================================================================================================================================================
+// Задача
+
+// Дан объект:
+// 1)
+// Напишите функцию showStudentExperience, которая принимает объект и возвращает опыт обучения.
+// Пример:
+// showStudentExperience(student);
+// 6 months
+
+// function showStudentExperience(person) {
+//   const { experience } = person.subjects;
+//   return experience;
+// }
+// console.log(showStudentExperience(student));
+
+// 2)
+// Напишите функцию showSubjectsProgress, которая принимает объект и возвращает строку такого вида:
+// Предмет javascript изучен на 80%
+// Предмет html изучен на 95%
+// Предмет css изучен на 70%
+// После каждой строки должен быть перенос (\n).
+// ⚠️ Функция должна работать независимо от количества предметов.
+const student = {
+  name: "Alex",
+  age: 27,
+  subjects: {
+    languages: ["javascript", "html", "css"],
+    progress: {
+      javascript: "80%",
+      html: "95%",
+      css: "70%",
+    },
+    experience: "6 months",
+  },
+  showStudentInfo: function (person) {
+    const { name } = person;
+    const { age } = person;
+    const { languages } = person.subjects;
+    let result = `Меня зовут ${name}, мне ${age} лет. Я изучаю: `;
+    for (let lang of languages) {
+      result += `${lang.toUpperCase()} `;
+    }
+
+    return result.trim();
   },
 };
+console.log(student.showStudentInfo(student));
 
-// delete options.width;
-// console.log(options);
-for (let key in options) {
-  if (typeof options[key] === "object") {
-    for (let i in options[key]) {
-      console.log(`Свойство ${i} imeet znachenie ${options[key][i]}`);
-    }
-  } else {
-    console.log(`Свойство ${key} imeet znachenie ${options[key]} `);
+function showSubjectsProgress(person) {
+  const { progress } = person.subjects;
+  let str = "";
+  for (let key in progress) {
+    str += `Предмет ${key} изучен на ${progress[key]}\n`;
   }
+  return str;
 }
+console.log(person.key);
+console.log(person[key]);
+console.log(showSubjectsProgress(student));
+// 3)
+
+// Добавьте в объект метод showStudentInfo.
+
+// Он принимает объект и возвращает строку:
+
+// Меня зовут Alex, мне 27 лет. Я изучаю: JAVASCRIPT HTML CSS
+
+// Требования:
+
+// названия предметов должны быть в верхнем регистре;
+// если массив предметов изменится, метод должен автоматически работать с новым количеством элементов;
+
+// Дополнительное условие (по желанию):
+// Во всех трех заданиях попробуй использовать параметр функции (plan, student или любое другое имя), а не обращаться к глобальной переменной.
+
+//
+// ========================================================================================================================================================
+
+//VANYA========================================================================================================================================================
+
+// const personalPlanPeter = {
+//   name: "Peter",
+//   age: "29",
+//   skills: {
+//     languages: ["ru", "eng"],
+//     programmingLangs: {
+//       js: "20%",
+//       php: "10%",
+//     },
+//     exp: "1 month",
+//   },
+//   showAgeAndLangs: function (plan) {
+//     const { age } = plan;
+//     const { languages } = plan.skills;
+//     let str = `Мне ${age} и я владею языками: `;
+
+//     languages.forEach(function (lang) {
+//       str += `${lang.toUpperCase()} `;
+//     });
+
+//     return str;
+//   },
+// };
+
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+
+// function showExperience(plan) {
+//   const { exp } = plan.skills;
+//   return exp;
+// }
+
+// showExperience(personalPlanPeter);
+
+// function showProgrammingLangs(plan) {
+//   let str = "";
+//   const { programmingLangs } = plan.skills;
+//   for (let key in programmingLangs) {
+//     str += `Язык ${key} изучен на ${programmingLangs[key]}\n`;
+//   }
+
+//   return str;
+// }
+
+// showProgrammingLangs(personalPlanPeter);
+
+//========================================================================================================================================================
+// Задача
+// 1)
+// Напишите функцию showCompanyExperience, которая принимает объект и возвращает опыт компании.
+// Пример:
+// showCompanyExperience(company);
+// Результат:
+// 8 years
+// 💡 Попробуй использовать деструктуризацию.
+
+// function showCompanyExperience(company) {
+//   const { experience } = company.departments;
+//   return experience;
+// }
+// console.log(showCompanyExperience(company));
+
+// 2)
+// Напишите функцию showTechnologies, которая принимает объект и возвращает строку:
+// Технология javascript освоена на уровне advanced
+// Технология html освоена на уровне expert
+// Технология css освоена на уровне intermediate
+// После каждой строки должен быть перенос (\n).
+// Небольшая хитрость
+// Если объект technologies окажется пустым
+// technologies: {}
+// то функция должна вернуть // Нет технологий
+// 3)
+// Добавьте метод showEmployees.
+// Он принимает объект и возвращает строку:
+// Компания OpenTech
+// Разработчики: ALEX JOHN KATE
+// Дизайнеры: ANNA MIKE
+// Требования
+// название компании подставляется автоматически;
+// имена сотрудников должны быть в верхнем регистре;
+// количество сотрудников может быть любым;
+// лишних пробелов в конце строки быть не должно.
+// ⭐ Бонус (самая интересная часть)
+// Добавьте еще один метод:
+const company = {
+  name: "OpenTech",
+  founded: 2018,
+  departments: {
+    developers: ["Alex", "John", "Kate"],
+    designers: ["Anna", "Mike"],
+    technologies: {
+      javascript: "advanced",
+      html: "expert",
+      css: "intermediate",
+    },
+    experience: "8 years",
+  },
+  // showEmployees: function (data) {
+  //   let result = "";
+  //   const { name } = data;
+  //   const { developers, designers } = data.departments;
+  //   result += `Компания ${name}\nРазработчики: `;
+  //   //Варианты избавления от пробела в средине строки
+  //   // for (let i = 0; i < developers.length; i++) {
+  //   //   if (i === developers.length - 1) {
+  //   //     result += developers[i].toUpperCase();
+  //   //   } else {
+  //   //     result += developers[i].toUpperCase() + " ";
+  //   //   }
+  //   // }
+  //   // Или
+  //   //     let count = 0;
+  //   // for (let dev of developers) {
+  //   //     result += dev.toUpperCase();
+  //   //     if (count !== developers.length - 1) {
+  //   //         result += " ";
+  //   //     }
+  //   //     count++;
+  //   // }
+  //   // Или
+  //   for (let developer of developers) {
+  //     result += `${developer.toUpperCase()} `;
+  //   }
+  //   result = result.trim();
+  //   result += `\nДизайнеры: `;
+  //   for (let designer of designers) {
+  //     result += `${designer.toUpperCase()} `;
+  //   }
+  //   return result.trim();
+  // },
+  showAllDepartments: function (company) {
+    let result = "";
+    const { departments } = company;
+
+    for (let key in departments) {
+      if (Array.isArray(departments[key])) {
+        result += `Отдел ${key}: \n`;
+        for (let employee of departments[key]) {
+          result += `${employee.toUpperCase()}\n`;
+        }
+      }
+    }
+    return result.trim();
+  },
+};
+console.log(company.showAllDepartments(company));
+
+// showAllDepartments()
+// Он должен вернуть строку:
+// Отдел developers:
+// ALEX
+// JOHN
+// KATE
+
+// Отдел designers:
+// ANNA
+// MIKE
+// Почему это сложнее?
+// Потому что теперь придется пройтись по объекту
+// departments
+// и самостоятельно определить, какие его свойства являются массивами сотрудников.
+// Подсказка:
+// Не все свойства в departments являются массивами.
+// Есть еще
+// technologies
+// experience
+// Их выводить здесь не нужно.
+function showTechnologies(company) {
+  const { technologies } = company.departments;
+  let result = "";
+  if (Object.keys(technologies).length === 0) {
+    return `Нет технологий`;
+  }
+  for (let key in technologies) {
+    result += `Технология ${key} освоена на уровне ${technologies[key]}\n`;
+  }
+  return result;
+}
+console.log(showTechnologies(company));
+
+// //========================================================================================================================================================
+
+// const company = {
+//   name: "OpenTech",
+// };
+
+// function test(company) {
+//   company = {
+//     name: "Google",
+//   };
+
+//   console.log(company.name);
+// }
+
+// test(company);
+
+// console.log(company.name);
+
+//========================================================================================================================================================
+
+// const company = {
+//   name: "OpenTech",
+// };
+
+// function test(company) {
+//   company.name = "Google";
+
+//   console.log(company.name);
+// }
+
+// test(company);
+// console.log(company.name);
