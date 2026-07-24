@@ -1901,7 +1901,7 @@ function compareNumber(a, b) {
 // Предмет html изучен на 95%
 // Предмет css изучен на 70%
 // После каждой строки должен быть перенос (\n).
-// ⚠️ Функция должна работать независимо от количества предметов.
+//  Функция должна работать независимо от количества предметов.
 const student = {
   name: "Alex",
   age: 27,
@@ -2173,38 +2173,24 @@ console.log(showTechnologies(company));
 // test(company);
 // console.log(company.name);
 
-const lines = 5;
-let result = "";
-// Проверяется именно переменная result, формируйте строку в ней
-for (let row = 0; row <= lines; row++) {
-  for (let space = 0; space < lines - row; space++) {
-    result += " ";
-  }
-  for (let stars = 0; stars < 2 * row + 1; stars++) {
-    result += "*";
-  }
-  result += "\n";
-}
-console.log(result);
-
 //Coding Exercise 11: Задачи на работу с массивами========================================================================================================================================================
 //Задачи:
 // 1) Напишите функцию showFamily, которая будет принимать в себя массив строк и возвращать сообщение в нужном формате.
 // showFamily(family)  => 'Семья состоит из: Peter Ann Alex Linda'
 // Имена подставляются автоматически из массива. Если массив пустой, то выводится сообщение ''
-const family = ["Peter", "Ann", "Alex", "Linda"];
+// const family = ["Peter", "Ann", "Alex", "Linda"];
 
-function showFamily(arr) {
-  let result = "Семья состоит из: ";
-  if (arr.length === 0) {
-    return `Семья пуста`;
-  }
-  for (let member of arr) {
-    result += `${member} `;
-  }
-  return result.trim();
-}
-console.log(showFamily(family));
+// function showFamily(arr) {
+//   let result = "Семья состоит из: ";
+//   if (arr.length === 0) {
+//     return `Семья пуста`;
+//   }
+//   for (let member of arr) {
+//     result += `${member} `;
+//   }
+//   return result.trim();
+// }
+// console.log(showFamily(family));
 
 // 2) напишите функцию standardizeStrings, которая будет принимать в себя массив строк и будет выводить в консоль эти строки в нижнем регистре.
 
@@ -2226,31 +2212,31 @@ function standardizeStrings(arr) {
 standardizeStrings(favoriteCities);
 
 //VANYA========================================================================================================================================================
-const family = ["Peter", "Ann", "Alex", "Linda"];
+// const family = ["Peter", "Ann", "Alex", "Linda"];
 
-// function showFamily(arr) {
-//   let str = "";
+// // function showFamily(arr) {
+// //   let str = "";
 
-//   arr.length === 0 ? (str = "Семья пуста") : (str = "Семья состоит из: ");
+// //   arr.length === 0 ? (str = "Семья пуста") : (str = "Семья состоomeStringит из: ");
 
-//   arr.forEach((member) => {
-//     str += `${member} `;
+// //   arr.forEach((member) => {
+// //     str += `${member} `;
+// //   });
+
+// //   return str;
+// // }
+
+// showFamily(family);
+
+// const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
+
+// function standardizeStrings(arr) {
+//   arr.forEach((city) => {
+//     console.log(city.toLowerCase());
 //   });
-
-//   return str;
 // }
 
-showFamily(family);
-
-const favoriteCities = ["liSBon", "ROME", "miLan", "Dublin"];
-
-function standardizeStrings(arr) {
-  arr.forEach((city) => {
-    console.log(city.toLowerCase());
-  });
-}
-
-standardizeStrings(favoriteCities);
+// standardizeStrings(favoriteCities);
 
 //Coding Exercise 12: Задачи на работу с массивами, часть 2========================================================================================================================================================
 // 3) Задача с собеседований. Напишите функцию reverse, которая принимает в себя строку и возвращает эту строку в обратном порядке.
@@ -2260,21 +2246,40 @@ standardizeStrings(favoriteCities);
 // reverse(someString) => 'gnirts egnarts emos si sihT'
 
 // Функцию можно применить к любой строке. Если в функцию приходит не строка - вернуть сообщение "Ошибка!"
-const someString = "This is some strange string";
+// const someString = "This is some strange string";
 
-function reverse(str) {
-  if (typeof str !== "string") {
-    return `Ошибка!`;
-  } else {
-    let someArr = str.split("");
-    str = someArr.reverse();
-    str = someArr.join("");
-  }
+// function reverse(str) {
+//   if (typeof str !== "string") {
+//     return `Ошибка!`;
+//   } else {
+//     let someArr = str.split("");
+//     str = someArr.reverse();
+//     str = someArr.join("");
+//   }
 
-  return str;
-}
-reverse(someString);
+//   return str;
+// }
+// reverse(someString);
+//VANYA
 
+// const someString = "This is some strange string";
+
+// function reverse(str) {
+//   if (typeof str !== "string") {
+//     return "Ошибка!";
+//   }
+//   // Самый оптимальный вариант решения
+//   return str.split("").reverse().join("");
+
+//   // Решение при помощи цикла
+//   // let newStr = '';
+//   // for (let i = str.length - 1; i >= 0; i--) {
+//   //     newStr += str[i];
+//   // }
+//   // return newStr
+// }
+
+// reverse(someString);
 //========================================================================================================================================================
 // 4) Представьте такую реальную ситуацию. У вас есть банкомат, который выдает деньги из двух разных банков в разных валютах. Один банк основной с базовыми валютами, второй дополнительный с прочими валютами:
 // Вам нужно создать главную функцию банкомата availableCurr, которая принимает два аргумента: первый - это массив со всеми доступными валютами из двух банков сразу (сейчас представим, что они не могут повторяться), второй - необязательный аргумент, который указывает ту валюту, которая сейчас закончилась в банкомате. Если массив в первом аргументе пустой - то функция возвращает строку 'Нет доступных валют'. Функция возвращает строку в нужном виде.
@@ -2288,12 +2293,316 @@ reverse(someString);
 // - CNY (юань) исчез из списка валют, значит такая валюта закончилась
 // - После валюты: стоит перенос строки \n, и после каждой валюты тоже. Это важно для тестов
 // - Данные для первого аргумента должны приходить сразу из двух банков, причем сначала baseCurrencies, потом additionalCurrencies по порядку
+// const baseCurrencies = ["USD", "EUR"];
+// const additionalCurrencies = ["UAH", "RUB", "CNY"];
+
+// function availableCurr(arr, missingCurr) {
+//   let result = "";
+//   if (arr.length === 0) {
+//     return `Нет доступных валют`;
+//   } else {
+//     result += `Доступные валюты:\n`;
+//   }
+//   for (let currency of arr) {
+//     if (currency !== missingCurr) {
+//       result += `${currency}\n`;
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(availableCurr([...baseCurrencies, ...additionalCurrencies], "CNY"));
+
+//VANYA
+//========================================================================================================================================================
+
 const baseCurrencies = ["USD", "EUR"];
 const additionalCurrencies = ["UAH", "RUB", "CNY"];
 
 function availableCurr(arr, missingCurr) {
-  let result = "";
-  if (arr.length === 0) {
-    return `Нет доступных валют`;
-  } else result += `Доступные валюты: `;
+  let str = "";
+  arr.length === 0
+    ? (str = "Нет доступных валют")
+    : (str = "Доступные валюты:\n");
+
+  arr.forEach(function (curr, i) {
+    if (curr !== missingCurr) {
+      str += `${curr}\n`;
+    }
+  });
+
+  // Или
+  // for (let i = 0; i < arr.length; i++) {
+  //     if (arr[i] === missingCurr) {
+  //         continue;
+  //     }
+  //     str += `${arr[i]}\n`;
+  // }
+
+  return str;
 }
+
+availableCurr([...baseCurrencies, ...additionalCurrencies], "CNY");
+
+//========================================================================================================================================================
+//Lesson 33
+// Передача данных по ссылке или по значению. Spread оператор (ES6-ES9)
+// let a = 5;
+// b = a;
+// b = b + 5;
+// console.log(b); //10
+
+// const obj = {
+//   a: 5,
+//   b: 1,
+// };
+// const objCopy = obj;
+// objCopy.a = 10;
+// console.log(objCopy);
+// console.log(obj);
+
+function copy(mainObj) {
+  let objCopy = {};
+  let key;
+  for (key in mainObj) {
+    objCopy[key] = mainObj[key];
+  }
+  return objCopy;
+}
+const numbers = {
+  a: 2,
+  b: 5,
+  c: { x: 8, y: 4 },
+};
+const newNumbers = copy(numbers);
+newNumbers.a = 10;
+console.log(newNumbers);
+console.log(numbers);
+
+//Метод объединения объектов
+
+const add = { d: 17, e: 20 };
+// console.log(Object.assign(numbers, add));
+
+const newAdd = Object.assign({}, add);
+newAdd.d = 55;
+console.log(add);
+console.log(newAdd);
+
+// Метод создания копии массивов
+
+const oldArray = [1, 2, 3];
+
+let newArray = oldArray.slice();
+newArray = [1, 1, 1];
+console.log(oldArray);
+console.log(newArray);
+
+//Оператор(SPREAD) разворота массива на отдельные значения
+
+const video = ["youtube, videotube, videovideo"],
+  blogs = ["vlog, blog, dlog"],
+  internet = [...video, ...blogs];
+console.log(internet);
+
+//Lesson 35========================================================================================================================================================
+let str = "some";
+let str_obj = new String(str);
+console.log(typeof str);
+console.log(typeof str_obj);
+
+const soldier = {
+  health: 400,
+  armor: 100,
+};
+// const john = { health: 100 };
+// // john.__proto__ = soldier;
+// // // console.log(john);
+
+// // console.log(john.health);
+
+// Object.setPrototypeOf(john, soldier);
+
+const john = Object.create(soldier);
+console.log(john);
+
+//Lesson 36 Practice p.4 Objects========================================================================================================================================================
+/* Задание на урок:
+
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+"Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
+const personalMovieDB = {
+  count: 0,
+  movies: {},
+  actors: {},
+  genres: [],
+  privat: false,
+  start: function () {
+    personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+
+    while (
+      personalMovieDB.count == "" ||
+      personalMovieDB.count == null ||
+      isNaN(personalMovieDB.count)
+    ) {
+      personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    }
+  },
+  rememberMyFilms: function () {
+    for (let i = 0; i < 2; i++) {
+      const a = prompt("Один из последних просмотренных фильмов?", "").trim(),
+        b = prompt("На сколько оцените его?", "");
+
+      if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log("done");
+      } else {
+        console.log("error");
+        i--;
+      }
+    }
+  },
+  detectPersonalLevel: function () {
+    if (personalMovieDB.count < 10) {
+      console.log("Просмотрено довольно мало фильмов");
+    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+      console.log("Вы классический зритель");
+    } else if (personalMovieDB.count >= 30) {
+      console.log("Вы киноман");
+    } else {
+      console.log("Произошла ошибка");
+    }
+  },
+  showMyDB: function (hidden) {
+    if (!hidden) {
+      console.log(personalMovieDB);
+    }
+  },
+  //   2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+  // переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+  toggleVisibleMyDB: function () {
+    if (personalMovieDB.privat === false) {
+      personalMovieDB.privat = true;
+    } else {
+      personalMovieDB.privat = false;
+    }
+  },
+  writeYourGenres: function () {
+    for (let i = 1; i <= 3; i++) {
+      let genres = prompt(`Ваш любимый жанр под номером ${i}`);
+      if (genres === null || genres === "") {
+        console.log("Вы ввели строку или нажали пробел");
+        i--;
+      } else {
+        personalMovieDB.genres[i - 1] = genres;
+      }
+    }
+    personalMovieDB.genres.forEach((item, i) => {
+      console.log(`Любимый жанр ${i + 1} - это ${item}`);
+    });
+  },
+};
+
+// 3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку.
+// Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены -
+// при помощи метода forEach вывести в консоль сообщения в таком виде:
+// "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
+
+// Coding exercise 13========================================================================================================================================================
+// У вас есть небольшой кусочек данных о торговом центре, которые записаны в объекте shoppingMallData. Они содержат массив с данными о магазинах, где указана длина и ширина помещения; высоту помещения; стоимость отопления за 1 кубический метр и бюджет на оплату отопления за месяц.
+
+// Основная задача - это написать функцию isBudgetEnough, которая буде возвращать строку. Если бюджета хватает для отопления всего объема торгового центра - выводится 'Бюджета достаточно', если нет - 'Бюджета недостаточно'. И все 🙂
+
+// Но эта задача содержит несколько подзадач внутри:
+
+// - вычисление общей площади всех магазинов, которая вычисляется как длина магазина, умноженная на его ширину;
+
+// - вычисление общего объема торгового центра, так как цена отопления указана в кубических метрах;
+
+// - определение того, хватает ли бюджета на оплату такого объема;
+
+// - все числа идут без единиц измерения для упрощения, просто цифры и все;
+
+// - функция должна продолжать работать, даже если изменяется количество магазинов, высота, бюджет или подставляется вообще другой объект.
+const shoppingMallData = {
+  shops: [
+    {
+      width: 10,
+      length: 5,
+    },
+    {
+      width: 15,
+      length: 7,
+    },
+    {
+      width: 20,
+      length: 5,
+    },
+    {
+      width: 8,
+      length: 10,
+    },
+  ],
+  height: 5,
+  moneyPer1m3: 30,
+  budget: 50000,
+};
+
+function isBudgetEnough(data) {
+  let mallArea = 0;
+  const { height, shops, budget, moneyPer1m3 } = data;
+  for (let shop of shops) {
+    mallArea += shop.width * shop.length;
+  }
+  let mallVolume = mallArea * height;
+  let moneyNeeded = moneyPer1m3 * mallVolume;
+
+  console.log(moneyNeeded);
+  if (moneyNeeded <= budget) {
+    return `Бюджета достаточно`;
+  } else {
+    return `Бюджета недостаточно`;
+  }
+}
+console.log(isBudgetEnough(shoppingMallData));
+
+//========================================================================================================================================================
+// У вас есть список учеников, которые хотят поиграть в игру:
+// const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard', 'Takesi', 'Sam'];
+// Но команд может быть только 3 по 3 человека. Напишите функцию sortStudentsByGroups, которая принимает в себя массив строк.
+// Внутри она сначала сортирует имена по алфавиту. Затем распределяет учеников по 3 человека в 3 группы по алфавитному порядку. Эти группы должны быть массивами. Как итог, функция возвращает новый массив с тремя командами и строкой как 4й элемент.
+// Пример:
+// sortStudentsByGroups(students)  =>
+// [
+//   [ 'Andrew', 'Ann', 'Bernard' ],
+//   [ 'Cris', 'Josh', 'Mark' ],
+//   [ 'Peter', 'Sam', 'Sandra' ],
+//   'Оставшиеся студенты: Takesi'
+// ]
+// Если убрать одно студента из списка, то результат будет:
+
+// [
+//   [ 'Andrew', 'Ann', 'Bernard' ],
+//   [ 'Cris', 'Josh', 'Mark' ],
+//   [ 'Peter', 'Sam', 'Sandra' ],
+//   'Оставшиеся студенты: -'
+// ]
+// А если добавить одного, то:
+
+// [
+//   [ 'Andrew', 'Ann', 'Bernard' ],
+//   [ 'Cris', 'Josh', 'Mark' ],
+//   [ 'Peter', 'Sam', 'Sandra' ],
+//   'Оставшиеся студенты: Takesi, Somebody'
+// ]
+// То есть, меняется содержимое строки. Все оставшиеся ученики попадают туда.
