@@ -43,3 +43,5 @@ coverage/
 # 🔹 Optional: lock files (иногда оставляют)
 # package-lock.json
 # yarn.lock
+# Nilux project configuration
+.nilux/
